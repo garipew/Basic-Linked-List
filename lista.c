@@ -38,6 +38,63 @@ void inserir(Lista* l, Item* i){
 
 }
 
+void trocaLateral(Item* esq, Item* dir){
+
+        Item* auxp = dir->proximo;
+
+        dir->anterior = esq->anterior;
+        dir->proximo = esq;
+        esq->anterior = dir;
+        esq->proximo = auxp;
+
+}
+
+void atualiza(Lista* l, Item* j){
+
+         if(j->proximo==NULL){
+                 l->ultimo = j;
+         } else{
+                 j->proximo->anterior = j;
+         }
+         if(j->anterior == l->primeiro){
+                 l->primeiro->proximo = j;
+         } else{
+                 j->anterior->proximo = j;
+         }
+
+}
+
+void troca(Lista* l, Item* i, Item* j){
+
+        if(i == NULL || j == NULL)
+                return;
+
+
+        if(i->anterior == j){
+
+                trocaLateral(j, i);
+		
+        }else if(j->anterior == i){
+
+                trocaLateral(i, j);
+
+        } else{
+
+	        Item* aux = i->anterior;
+	        Item* auxp = i->proximo;
+
+	        i->proximo = j->proximo;
+	        i->anterior = j->anterior;
+	        j->anterior = aux;
+	        j->proximo = auxp;
+
+    	}	
+
+        atualiza(l, i);
+        atualiza(l, j);
+
+}
+
 int listaVazia(Lista* l){
 
 	if(l->primeiro == l->ultimo)
