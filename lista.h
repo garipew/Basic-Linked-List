@@ -19,6 +19,7 @@ typedef struct lista{
 Lista* criaListaVazia();
 Item* criaItem(int, char);
 void inserir(Lista*, Item*);
+void troca(Lista*, Item*, Item*);
 int listaVazia(Lista*);
 int removeElemento(Lista*, int);
 void imprimeLista(Lista*);
