@@ -9,12 +9,13 @@ void insertionSort(Lista* l){
 		while(j != l->primeiro->proximo){
 			if(j->chave > j->anterior->chave){
 				troca(l, j, j->anterior);
-          		} else{
+			}
+			else{
 				j = j->anterior;
-          		}
-    		}
-    
-    		i = i->proximo;
+			}
+		}
+		
+		i = i->proximo;
+		
 	}
-  }
-  
+}
