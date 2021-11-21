@@ -7,13 +7,14 @@ void insertionSort(Lista* l){
 
 		j = i;
 		while(j != l->primeiro->proximo){
-					if(j->chave > j->anterior->chave){
-						troca(l, j, j->anterior);
-          } else{
-            j = j->anterior;
-          }
-    }
+			if(j->chave > j->anterior->chave){
+				troca(l, j, j->anterior);
+          		} else{
+				j = j->anterior;
+          		}
+    		}
     
-    i = i->proximo;
+    		i = i->proximo;
+	}
   }
   
